@@ -11,13 +11,14 @@ plugin = {"html:src/test/resources/reports/cucumberReport.html"},
 
         features="src/test/resources/features",//features dosya yolunu yazariz
         glue="stepdefinitions",//kodlarin yazildigi yeri belirtiriz
-        tags="@N11",//calistirmak istedigimiz senaryoya verdigimiz tag i belirtiriz
+        tags="@g2",//calistirmak istedigimiz senaryoya verdigimiz tag i belirtiriz
         dryRun = false//senaryo adimlarini kontrol eder ve calistigini goruruz
 
 
 
+
 )
-public class Runner {
+public class Runner1 {
 
 
 

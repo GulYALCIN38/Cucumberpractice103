@@ -7,3 +7,4 @@ Feature: Amazon testi
     And sonuclarin "kalem" icerdigi test edilir
     And sayfa kapatilir
   # ctrl ye basip ustune tiklayinca ilgili step definitiona gidersiniz
+  #featurefile da rakam kullaninca tirnak icine almadan parametreli step definition olusur

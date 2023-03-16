@@ -56,6 +56,7 @@ public class AmazonStepDefinitions {
 
     @Then("amazon sayfasinda {string} aratilir")
     public void amazonSayfasindaAratilir(String string) {
+
         amazonpage.searchbox.sendKeys(string, Keys.ENTER);
     }
 
@@ -89,4 +90,38 @@ public class AmazonStepDefinitions {
             throw new RuntimeException(e);
         }
     }
+
+    @Then("kullanici {string} icin arama yapar")
+    public void kullaniciIcinAramaYapar(String string) {
+        amazonpage.searchbox.sendKeys(string, Keys.ENTER);
+
+    }
+
+    @And("sayfa basliginin {string} icerdigini dogrular")
+    public void sayfaBasligininIcerdiginiDogrular(String baslik) {
+        Driver.getDriver().getTitle().contains(baslik);
+    }
+
+    @Given("kullanici {string} adresine gider")
+    public void kullanici_adresine_gider(String string) {
+     Driver.getDriver().get(ConfigReader.getProperty(string));
+    }
+    @Then("kullanici sql samsung ve nokia kelimelerini aratir")
+    public void kullanici_sql_samsung_ve_nokia_kelimelerini_aratir() {
+        amazonpage.searchbox.sendKeys(ConfigReader.getProperty("kelime1"),Keys.ENTER);
+        Driver.wait(2);
+        assert Driver.getDriver().getTitle().contains(ConfigReader.getProperty("kelime1"));
+        amazonpage.searchbox.clear();
+        Driver.wait(2);
+        amazonpage.searchbox.sendKeys(ConfigReader.getProperty("kelime2"),Keys.ENTER);
+        assert Driver.getDriver().getTitle().contains(ConfigReader.getProperty("kelime2"));
+        amazonpage.searchbox.clear();
+        Driver.wait(2);
+        amazonpage.searchbox.sendKeys(ConfigReader.getProperty("kelime3"),Keys.ENTER);
+        assert Driver.getDriver().getTitle().contains(ConfigReader.getProperty("kelime3"));
+        amazonpage.searchbox.clear();
+
+    }
+
+
 }

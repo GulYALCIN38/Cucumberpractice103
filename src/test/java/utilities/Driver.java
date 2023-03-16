@@ -12,11 +12,9 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.util.List;
 import java.util.NoSuchElementException;
-
 public class Driver {
     //create a driver instance
     private static WebDriver driver;
@@ -30,6 +28,7 @@ public class Driver {
     }
     //to initialize the driver we create a static method
     public static WebDriver getDriver() {
+        System.setProperty("webdriver.http.factory","jdk-http-client");
         //create the driver if and only if it is null
         if (driver == null) {
             String browser = ConfigReader.getProperty("browser");
@@ -159,6 +158,7 @@ public class Driver {
     public static void wait(int secs) {
         try {
             Thread.sleep(1000 * secs);
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (TimeoutException e) {
